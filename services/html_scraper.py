@@ -28,6 +28,7 @@ async def fetch_company_details(url: str) -> dict:
         logger.error(f"Error fetching data for query '{url}': {e}")
         return []
 async def fetch_company_data(query: str) -> list[dict]:
+    driver = None
     url = "https://business.sos.ri.gov/CorpWeb/CorpSearch/CorpSearch.aspx"
     try:
         ua = UserAgent()
@@ -82,6 +83,9 @@ async def fetch_company_data(query: str) -> list[dict]:
     except Exception as e:
         logger.error(f"Error fetching data for query '{query}': {e}")
         return []
+    finally:
+        if driver:
+            driver.quit()
 
 async def parse_html_search(html: str) -> list[dict]:
     soup = BeautifulSoup(html, "html.parser")
