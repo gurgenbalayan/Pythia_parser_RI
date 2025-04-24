@@ -1,4 +1,4 @@
-# Проект Pythia Parser South Carolina
+# Проект Pythia Parser Rhode Island
 
 ## Установка и запуск
 
