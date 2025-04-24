@@ -155,7 +155,7 @@ async def parse_html_details(html: str) -> dict:
         return managers
 
     return {
-        "state": "RI",
+        "state": STATE,
         "name": await get_text("#MainContent_lblEntityName"),
         "status": "Revoked" if await get_text("#MainContent_lblInactiveDate") else "Active",
         "registration_number": await get_text("#MainContent_lblIDNumber"),
