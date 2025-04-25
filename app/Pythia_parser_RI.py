@@ -3,10 +3,8 @@ from consumers.ca_entities_consumer import handle_message
 from rabbitmq_connection import get_channel
 from utils.logger import setup_logger
 import os
-from dotenv import load_dotenv
-load_dotenv()
-logger = setup_logger("main")
 
+logger = setup_logger("main")
 QUEUE_NAME = os.getenv("QUEUE_NAME")
 async def main():
     channel = await get_channel()

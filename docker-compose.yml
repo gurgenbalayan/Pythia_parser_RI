@@ -1,0 +1,22 @@
+services:
+  parser:
+    build:
+      context: ./app
+    container_name: ${PARSER_ID}
+    restart: on-failure
+    environment:
+      RABBITMQ_HOST: ${RABBITMQ_HOST}
+      RABBITMQ_PORT: ${RABBITMQ_PORT}
+      RABBITMQ_USER: ${RABBITMQ_USER}
+      RABBITMQ_PASS: ${RABBITMQ_PASS}
+      RABBITMQ_RESULTS_QUEUE: ${RABBITMQ_RESULTS_QUEUE}
+      QUEUE_NAME: ${QUEUE_NAME}
+      STATE: ${STATE}
+      PARSER_ID: ${PARSER_ID}
+      SELENIUM_REMOTE_URL: ${SELENIUM_REMOTE_URL}
+    networks:
+      - rabbitnet
+
+networks:
+  rabbitnet:
+    external: true
