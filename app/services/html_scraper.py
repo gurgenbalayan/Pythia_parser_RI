@@ -6,10 +6,7 @@ from selenium.webdriver.common.by import By
 from utils.logger import setup_logger
 import os
 from bs4 import BeautifulSoup
-from selenium.common import WebDriverException, TimeoutException
 from selenium import webdriver
-from typing import Dict
-import undetected_chromedriver as uc
 from fake_useragent import UserAgent
 
 SELENIUM_REMOTE_URL = os.getenv("SELENIUM_REMOTE_URL")
